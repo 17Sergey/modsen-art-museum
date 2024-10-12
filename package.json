@@ -7,7 +7,7 @@
         "dev": "vite",
         "build": "tsc -b && vite build",
         "lint": "eslint .",
-        "test": "jest --runInBand",
+        "test": "jest --runInBand --passWithNoTests",
         "format": "prettier --write .",
         "preview": "vite preview",
         "prepare": "husky install"
@@ -49,7 +49,7 @@
         "*.{js,css,ts,tsx,jsx}": [
             "prettier --write",
             "eslint --fix",
-            "jest"
+            "jest --runInBand --passWithNoTests"
         ]
     },
     "resolutions": {
