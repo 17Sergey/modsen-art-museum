@@ -31,7 +31,7 @@ export const StyledBurgerMenu = styled.div<{
 }>`
     display: none;
     position: fixed;
-    z-index: 10;
+    z-index: 100;
     top: 0;
     right: -100%;
 
@@ -62,10 +62,10 @@ export const StyledBurgerIcon = styled(BurgerIcon)`
 `;
 
 export const StyledCrossIcon = styled(CrossIcon)`
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     cursor: pointer;
     align-self: flex-end;
     position: relative;
-    left: 0.5rem;
+    left: 1rem;
 `;

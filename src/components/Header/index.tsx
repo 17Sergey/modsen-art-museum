@@ -12,6 +12,7 @@ export const Header = () => {
                     <MuseumLogo
                         width="12rem"
                         height="3.5rem"
+                        textColor="#FFF"
                     />
                     <HeaderMenu />
                 </StyledHeader>
