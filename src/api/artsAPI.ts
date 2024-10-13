@@ -6,24 +6,24 @@ enum API_CONSTANTS {
     SEARCH_SIZE_LIMIT = 10,
 }
 
-export const artsAPI = {
-    getArts: async ({ page = 1, limit = 4 }: { page?: number; limit?: number }) => {
+export const artworksAPI = {
+    getArtworks: async ({ page = 1, limit = 4 }: { page?: number; limit?: number }) => {
         const data = getRequest({
             path: `${API_CONSTANTS.BASE_URL}?page=${page}&limit=${limit}&fields=${API_CONSTANTS.FIELDS_TO_FETCH}`,
         });
         return data;
     },
-    getArtShort: async (artId: string = "") => {
+    getArtworksShort: async (artId: string = "") => {
         const data = getRequest({
             path: `${API_CONSTANTS.BASE_URL}/${artId}&fields=${API_CONSTANTS.FIELDS_TO_FETCH}`,
         });
         return data;
     },
-    getArtFull: async (artId: string = "") => {
+    getArtworksFull: async (artId: string = "") => {
         const data = getRequest({ path: `${API_CONSTANTS.BASE_URL}/${artId}` });
         return data;
     },
-    findArts: async (searchQuery: string = "") => {
+    findArtworks: async (searchQuery: string = "") => {
         const data = getRequest({
             path: `${API_CONSTANTS.BASE_URL}/search?q=${searchQuery}&size=${API_CONSTANTS.SEARCH_SIZE_LIMIT}`,
         });
