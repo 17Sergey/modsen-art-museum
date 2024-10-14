@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import { StyledDetails } from "./Details.styles";
-
-import { ArtworkDetails } from "@components/ArtworkDetails";
+import { ArtworkDetails } from "@pages/Details/ArtworkDetails";
 import { StyledContainer } from "@components/Container/Container.styles";
 import { useFetchArtDetails } from "@hooks/useFetchArtDetails";
 
@@ -14,11 +12,9 @@ export const Details = () => {
 
     return (
         <StyledContainer>
-            <StyledDetails>
-                {isLoading && <p>Loading...</p>}
-                {error && <p>Error: {error}</p>}
-                {data && <ArtworkDetails artwork={data} />}
-            </StyledDetails>
+            {isLoading && <p>Loading...</p>}
+            {error && <p>Error: {error}</p>}
+            {data && <ArtworkDetails artwork={data} />}
         </StyledContainer>
     );
 };

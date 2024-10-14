@@ -4,12 +4,12 @@ import { Home } from "@pages/Home";
 
 enum PATHS {
     HOME = "/",
-    DETAILS = "/details/:id",
+    ARTWORK_DETAILS = "/artworks/:id",
     FAVORITES = "/favorites",
 }
 
 export const routes = [
     { path: PATHS.HOME, component: Home },
-    { path: PATHS.DETAILS, component: Details },
+    { path: PATHS.ARTWORK_DETAILS, component: Details },
     { path: PATHS.FAVORITES, component: Favorites },
 ];

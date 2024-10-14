@@ -5,15 +5,13 @@ import {
     StyledDates,
     StyledFeature,
     StyledFeatures,
-    StyledFeatureTitle,
     StyledImage,
     StyledImageWrapper,
     StyledInfo,
-    StyledOverviewHeading,
-    StyledTitle,
 } from "./ArtworkDetails.styles";
 
 import { AddFavorite } from "@components/AddFavorite";
+import { StyledSectionHeading, StyledTextHightlight } from "@components/CommonStyledComponents";
 import { ART_IMAGE_ENDPOINT } from "@constants/constants";
 
 export const ArtworkDetails = ({ artwork }: { artwork: FullArtWorkType }) => {
@@ -27,7 +25,7 @@ export const ArtworkDetails = ({ artwork }: { artwork: FullArtWorkType }) => {
             </StyledImageWrapper>
             <StyledInfo>
                 <div>
-                    <StyledTitle>{artwork.title}</StyledTitle>
+                    <StyledSectionHeading>{artwork.title}</StyledSectionHeading>
                     <StyledAuthorTitle>{artwork.artist_title}</StyledAuthorTitle>
                     <StyledDates>
                         {artwork.date_start} - {artwork.date_end}
@@ -35,22 +33,22 @@ export const ArtworkDetails = ({ artwork }: { artwork: FullArtWorkType }) => {
                 </div>
 
                 <div>
-                    <StyledOverviewHeading>Overview</StyledOverviewHeading>
+                    <StyledSectionHeading>Overview</StyledSectionHeading>
                     <StyledFeatures>
                         <StyledFeature>
-                            <StyledFeatureTitle>Artist nationality: </StyledFeatureTitle>
+                            <StyledTextHightlight>Artist nationality: </StyledTextHightlight>
                             <span>{artwork.place_of_origin}</span>
                         </StyledFeature>
                         <StyledFeature>
-                            <StyledFeatureTitle>Dimensions Sheet: </StyledFeatureTitle>
+                            <StyledTextHightlight>Dimensions Sheet: </StyledTextHightlight>
                             <span>{artwork.dimensions}</span>
                         </StyledFeature>
                         <StyledFeature>
-                            <StyledFeatureTitle>Credit Line: </StyledFeatureTitle>
+                            <StyledTextHightlight>Credit Line: </StyledTextHightlight>
                             <span>{artwork.credit_line}</span>
                         </StyledFeature>
                         <StyledFeature>
-                            <StyledFeatureTitle>Repository: </StyledFeatureTitle>
+                            <StyledTextHightlight>Repository: </StyledTextHightlight>
                             <span>{artwork.department_title}</span>
                         </StyledFeature>
                     </StyledFeatures>

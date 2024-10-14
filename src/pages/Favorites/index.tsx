@@ -3,17 +3,18 @@ import {
     StyledFavoritesIcon,
     StyledFavoritesList,
     StyledFavoritesWrapper,
-    StyledHeading,
-    StyledSection,
-    StyledSubheading,
-    StyledSubheadingText,
 } from "./Favorites.styles";
 
 import { StyledContainer } from "@components/Container/Container.styles";
-import { ArtworkOverviewCard } from "@components/ArtworkOverviewCard";
+import { ArtworksOverviewList } from "@components/ArtworksOverviewList";
 
 import { useFavorites } from "@hooks/useFavorites";
 import { useFetchFavorites } from "@hooks/useFetchFavorites";
+import {
+    StyledLargeHeading,
+    StyledSectionHeading,
+    StyledTextHightlight,
+} from "@components/CommonStyledComponents";
 
 export function Favorites() {
     const theme = useTheme();
@@ -22,30 +23,25 @@ export function Favorites() {
 
     return (
         <StyledContainer>
-            <StyledSection>
-                <StyledHeading>
-                    Here are your <br />
-                    <span>
-                        <StyledFavoritesIcon stroke={theme.colors.primary} />
-                        Favorites
-                    </span>
-                </StyledHeading>
-                <StyledFavoritesWrapper>
-                    <StyledSubheadingText>Saved by you</StyledSubheadingText>
-                    <StyledSubheading>Your favorites list</StyledSubheading>
+            <StyledLargeHeading>
+                Here are your <br />
+                <span>
+                    <StyledFavoritesIcon stroke={theme.colors.primary} />
+                    Favorites
+                </span>
+            </StyledLargeHeading>
+            <StyledFavoritesWrapper>
+                <StyledTextHightlight>Saved by you</StyledTextHightlight>
+                <StyledSectionHeading>Your favorites list</StyledSectionHeading>
 
-                    {isLoading && <p>Loading...</p>}
-                    {error && <p>Error: {error}</p>}
+                {isLoading && <p>Loading...</p>}
+                {error && <p>Error: {error}</p>}
+                {artworks && (
                     <StyledFavoritesList>
-                        {artworks &&
-                            artworks?.map((artwork) => (
-                                <li key={artwork.id}>
-                                    <ArtworkOverviewCard artwork={artwork} />
-                                </li>
-                            ))}
+                        <ArtworksOverviewList artworks={artworks} />
                     </StyledFavoritesList>
-                </StyledFavoritesWrapper>
-            </StyledSection>
+                )}
+            </StyledFavoritesWrapper>
         </StyledContainer>
     );
 }

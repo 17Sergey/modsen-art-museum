@@ -25,7 +25,6 @@ body {
   font-family: ${({ theme }) => theme.fonts.primary}, sans-serif;
   font-size: ${({ theme }) => theme.fonts.fontSize.base};
   font-weight: 400;
-  line-height: 125%;
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.background};
 }
@@ -34,7 +33,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: inherit;
   font-weight: inherit;
   font-family: inherit;
-  line-height: 150%;
 }
 
 h1,

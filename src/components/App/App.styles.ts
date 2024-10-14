@@ -8,4 +8,5 @@ export const StyledLayout = styled.main`
 
 export const StyledMain = styled.main`
     flex-grow: 1;
+    padding: 5rem 0;
 `;

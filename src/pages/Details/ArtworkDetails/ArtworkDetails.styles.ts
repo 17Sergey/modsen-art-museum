@@ -1,3 +1,4 @@
+import { StyledTextHightlight } from "@components/CommonStyledComponents";
 import styled from "styled-components";
 
 export const StyledArtwork = styled.div`
@@ -15,11 +16,16 @@ export const StyledBookMark = styled.div`
     z-index: 100;
     top: 1rem;
     right: 1rem;
+
+    background-color: #fff;
+    border-radius: 50%;
 `;
 
 export const StyledImage = styled.img`
     max-width: 30rem;
-    max-height: 35rem;
+    height: auto;
+    aspect-ratio: 1 / 1.3;
+    object-fit: cover;
 `;
 
 export const StyledInfo = styled.div`
@@ -33,10 +39,9 @@ export const StyledTitle = styled.div`
     line-height: 150%;
 `;
 
-export const StyledAuthorTitle = styled.div`
+export const StyledAuthorTitle = styled(StyledTextHightlight)`
     margin-top: 2rem;
     font-size: ${(props) => props.theme.fonts.fontSize.subheading};
-    color: ${(props) => props.theme.colors.secondary};
 `;
 
 export const StyledDates = styled.div`
@@ -55,8 +60,7 @@ export const StyledFeatures = styled.ul`
 
 export const StyledFeature = styled.li`
     margin-bottom: 1rem;
-`;
-
-export const StyledFeatureTitle = styled.span`
-    color: ${(props) => props.theme.colors.secondary};
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
 `;

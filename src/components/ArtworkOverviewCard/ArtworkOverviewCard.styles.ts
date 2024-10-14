@@ -1,3 +1,4 @@
+import { StyledTextHightlight } from "@components/CommonStyledComponents";
 import styled from "styled-components";
 
 export const StyledCard = styled.div`
@@ -29,19 +30,23 @@ export const StyledInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    max-width: 100%;
+    overflow: hidden;
+    min-width: 100%;
 `;
 
 export const StyledTitle = styled.p`
     font-weight: 500;
     font-size: ${(props) => props.theme.fonts.fontSize.medium};
 
-    max-width: 15rem;
+    max-width: 12rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 `;
 
-export const StyledArtistName = styled.p`
+export const StyledArtistName = styled(StyledTextHightlight)`
     margin-top: 0.5rem;
     color: ${(props) => props.theme.colors.secondary};
 
@@ -52,5 +57,6 @@ export const StyledArtistName = styled.p`
 `;
 
 export const StyledPublicStatus = styled.p`
+    margin-top: 1rem;
     font-weight: 700;
 `;

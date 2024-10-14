@@ -16,6 +16,10 @@ export const StyledButton = styled.button`
     &:active {
         transform: scale(0.9);
     }
+
+    &:hover {
+        background-color: ${(props) => props.theme.colors.primaryTransparent};
+    }
 `;
 
 export const StyledIcon = styled(FavoritesIcon)`

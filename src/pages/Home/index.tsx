@@ -1,10 +1,16 @@
 import { StyledContainer } from "@components/Container/Container.styles";
 
+import { OtherArtworks } from "./OtherArtworks";
+import { Gallery } from "./Gallery";
+import { SearchArtworks } from "./SearchArtworks";
+
 export const Home = () => {
     return (
         <>
             <StyledContainer>
-                <h1>Home page</h1>
+                <SearchArtworks />
+                <Gallery />
+                <OtherArtworks />
             </StyledContainer>
         </>
     );

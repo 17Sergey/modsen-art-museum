@@ -19,5 +19,6 @@ type OverviewArtworkType = {
     image_id?: string | null;
     title: string;
     artist_title: string;
+    date_end: number;
     is_public_domain: boolean;
 };

@@ -24,6 +24,11 @@ export const StyledLink = styled(Link)`
     font-family: ${({ theme }) => theme.fonts.secondary};
     font-size: ${({ theme }) => theme.fonts.fontSize.base};
     font-weight: 400;
+
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.25rem;
+    }
 `;
 
 export const StyledBurgerMenu = styled.div<{
