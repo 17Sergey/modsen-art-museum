@@ -1,29 +1,29 @@
+import { API_CONSTANTS } from "@constants/constants";
 import { getRequest } from "@utils/getRequest";
 
-enum API_CONSTANTS {
-    BASE_URL = "https://api.artic.edu/api/v1/artworks",
-    FIELDS_TO_FETCH = "id,title,artist_display,is_public_domain,thumbnail",
-    SEARCH_SIZE_LIMIT = 10,
-}
-
 export const artworksAPI = {
-    getArtworks: async ({ page = 1, limit = 4 }: { page?: number; limit?: number }) => {
+    async getArtworks({ page = 1, limit = 4 }: { page?: number; limit?: number }) {
         const data = getRequest({
-            path: `${API_CONSTANTS.BASE_URL}?page=${page}&limit=${limit}&fields=${API_CONSTANTS.FIELDS_TO_FETCH}`,
+            path: `${API_CONSTANTS.BASE_URL}?page=${page}&limit=${limit}&fields=${API_CONSTANTS.OVERVIEW_FIELDS_TO_FETCH}`,
         });
         return data;
     },
-    getArtworksShort: async (artId: string = "") => {
+    async getArtwork(artId: string = "") {
         const data = getRequest({
-            path: `${API_CONSTANTS.BASE_URL}/${artId}&fields=${API_CONSTANTS.FIELDS_TO_FETCH}`,
+            path: `${API_CONSTANTS.BASE_URL}/${artId}?fields=${API_CONSTANTS.OVERVIEW_FIELDS_TO_FETCH}`,
         });
         return data;
     },
-    getArtworksFull: async (artId: string = "") => {
+    async getFullArtwork(artId: string = "") {
         const data = getRequest({ path: `${API_CONSTANTS.BASE_URL}/${artId}` });
         return data;
     },
-    findArtworks: async (searchQuery: string = "") => {
+    async getArtworksByIds(artworksIds: string[]) {
+        const promises = artworksIds.map((id) => this.getArtwork(id));
+        const data = await Promise.all(promises);
+        return data;
+    },
+    async findArtworks(searchQuery: string = "") {
         const data = getRequest({
             path: `${API_CONSTANTS.BASE_URL}/search?q=${searchQuery}&size=${API_CONSTANTS.SEARCH_SIZE_LIMIT}`,
         });

@@ -1,14 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 
+import { StyledLayout, StyledMain } from "./App.styles";
+
 import { Footer } from "@components/Footer";
 import { Header } from "@components/Header";
 import { routes } from "@constants/routes";
 
 export function App() {
     return (
-        <>
+        <StyledLayout>
             <Header />
-            <main>
+            <StyledMain>
                 <Routes>
                     {routes.map((route) => (
                         <Route
@@ -18,8 +20,8 @@ export function App() {
                         />
                     ))}
                 </Routes>
-            </main>
+            </StyledMain>
             <Footer />
-        </>
+        </StyledLayout>
     );
 }

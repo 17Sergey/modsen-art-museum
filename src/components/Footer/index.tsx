@@ -1,7 +1,7 @@
 import { StyledContainer } from "@components/Container/Container.styles";
 import { StyledBackground, StyledFooter } from "./Footer.styles";
-import { MuseumLogo } from "@components/MuseumLogo";
-import { ModsenLogo } from "@components/ModsenLogo";
+import { MuseumLogo } from "@components/Logos/MuseumLogo";
+import { ModsenLogo } from "@components/Logos/ModsenLogo";
 
 export const Footer = () => {
     return (

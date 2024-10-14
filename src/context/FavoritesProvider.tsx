@@ -11,7 +11,7 @@ type FavoritesContextType = {
     removeFavorite: (id: FavoriteIdType) => void;
 };
 
-export const FavoritesContext = createContext<FavoritesContextType | null>(null);
+export const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
     const [favoriteIds, setFavoriteIds] = useState<Array<FavoriteIdType>>(

@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_KEYS } from "@constants/localStorageKeys";
+import { LOCAL_STORAGE_KEYS } from "@constants/constants";
 
 export const loadFavoritesFromLocalStorage = (): FavoriteIdType[] => {
     try {

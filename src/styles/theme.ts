@@ -3,7 +3,7 @@ import { DefaultTheme } from "styled-components";
 export const defaultTheme: DefaultTheme = {
     colors: {
         primary: "#F17900",
-        primaryTransparent: "#FBD7B24D",
+        primaryTransparent: "#fbd7b24d",
 
         secondary: "#E0A449",
 
@@ -25,7 +25,7 @@ export const defaultTheme: DefaultTheme = {
             medium: "1.125rem",
             subheading: "1.5rem",
             heading: "2rem",
-            headingLarge: "4rem",
+            headingLarge: "3.5rem",
         },
     },
 };

@@ -1,5 +1,5 @@
 import { StyledContainer } from "@components/Container/Container.styles";
-import { MuseumLogo } from "@components/MuseumLogo";
+import { MuseumLogo } from "@components/Logos/MuseumLogo";
 import { HeaderMenu } from "./HeaderMenu";
 
 import { StyledHeader, StyledHeaderBackground } from "./Header.styles";

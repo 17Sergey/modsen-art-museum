@@ -2,9 +2,10 @@ import { FavoritesContext } from "@context/FavoritesProvider";
 import { useContext } from "react";
 
 export const useFavorites = () => {
-    const favoriteIds = useContext(FavoritesContext);
+    const context = useContext(FavoritesContext);
 
-    if (!favoriteIds) throw new Error("useFavorites must be used within a FavoritesProvider");
+    if (context === undefined)
+        throw new Error("useFavorites must be used within a FavoritesProvider");
 
-    return favoriteIds;
+    return context;
 };
