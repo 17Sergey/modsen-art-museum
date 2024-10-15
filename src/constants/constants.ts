@@ -19,3 +19,5 @@ export enum SORT_CRITERIES {
     DATE_ASC = "date_asc",
     DATE_DESC = "date_desc",
 }
+
+export const SEARCH_QUERY_MAX_LENGTH = 20;

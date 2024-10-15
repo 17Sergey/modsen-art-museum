@@ -61,5 +61,16 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledResults = styled.div`
-    margin-top: 4rem;
+    margin-top: 2.5rem;
+`;
+
+export const StyledLoader = styled.div`
+    text-align: center;
+    & > p {
+        margin-bottom: 1rem;
+    }
+`;
+
+export const StyledNoData = styled.p`
+    text-align: center;
 `;

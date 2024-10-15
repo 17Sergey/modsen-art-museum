@@ -22,3 +22,7 @@ type OverviewArtworkType = {
     date_end: number;
     is_public_domain: boolean;
 };
+
+type SearchFormInputs = {
+    searchQuery: string;
+};

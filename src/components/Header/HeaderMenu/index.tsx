@@ -13,17 +13,18 @@ import {
 import { FavoritesIcon } from "@components/Icons/FavoritesIcon";
 import { HomeIcon } from "@components/Icons/HomeIcon";
 import { useDisableBodyScroll } from "@hooks/useDisableBodyScroll";
+import { PATHS } from "@constants/routes";
 
 export const HeaderMenu = () => {
     const { pathname } = useLocation();
 
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false); // burger menu
 
     const toggleMenu = () => {
         setIsMenuOpen((isMenuOpen) => !isMenuOpen);
     };
 
-    useDisableBodyScroll(isMenuOpen);
+    useDisableBodyScroll(isMenuOpen); // if menu is open it disables
 
     const iconsSize = { width: "1.5rem", height: "1.5rem" };
 
@@ -32,14 +33,14 @@ export const HeaderMenu = () => {
             <>
                 {pathname !== "/" && (
                     <li onClick={isMenuOpen ? toggleMenu : undefined}>
-                        <StyledLink to="/">
+                        <StyledLink to={PATHS.HOME}>
                             <HomeIcon {...iconsSize} />
                             Home
                         </StyledLink>
                     </li>
                 )}
                 <li onClick={isMenuOpen ? toggleMenu : undefined}>
-                    <StyledLink to="/favorites">
+                    <StyledLink to={PATHS.FAVORITES}>
                         <FavoritesIcon {...iconsSize} />
                         Your favorites
                     </StyledLink>

@@ -1,15 +1,15 @@
-import { Details } from "@pages/Details";
-import { Favorites } from "@pages/Favorites";
-import { Home } from "@pages/Home";
+import { DetailsPage } from "@pages/Details";
+import { FavoritesPage } from "@pages/Favorites";
+import { HomePage } from "@pages/Home";
 
-enum PATHS {
+export enum PATHS {
     HOME = "/",
-    ARTWORK_DETAILS = "/artworks/:id",
+    ARTWORK_DETAILS = "/artworks",
     FAVORITES = "/favorites",
 }
 
-export const routes = [
-    { path: PATHS.HOME, component: Home },
-    { path: PATHS.ARTWORK_DETAILS, component: Details },
-    { path: PATHS.FAVORITES, component: Favorites },
+export const ROUTES = [
+    { path: PATHS.HOME, component: HomePage },
+    { path: `${PATHS.ARTWORK_DETAILS}/:id`, component: DetailsPage },
+    { path: PATHS.FAVORITES, component: FavoritesPage },
 ];

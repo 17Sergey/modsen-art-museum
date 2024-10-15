@@ -11,23 +11,28 @@ import {
 } from "./ArtworkOverviewCard.styles";
 
 import { AddFavorite } from "@components/AddFavorite";
-import { ART_IMAGE_ENDPOINT } from "@constants/constants";
+import { PATHS } from "@constants/routes";
 
-export const ArtworkOverviewCard = ({
-    artwork,
-    withImage = true,
-}: {
+import MockImage from "@assets/images/MockImage.svg";
+import { useFetchAPIImage } from "@hooks/useFetchAPIImage";
+
+type ArtworkOverviewCardProps = {
     artwork: OverviewArtworkType;
     withImage?: boolean;
-}) => {
+};
+
+export const ArtworkOverviewCard = ({ artwork, withImage = true }: ArtworkOverviewCardProps) => {
+    const { imgSrc, isImgError, setImgError } = useFetchAPIImage(artwork.image_id || "");
+
     return (
-        <Link to={`/artworks/${artwork.id}`}>
+        <Link to={`${PATHS.ARTWORK_DETAILS}/${artwork.id}`}>
             <StyledCard>
                 <StyledCardContent>
                     {withImage && (
                         <StyledThumbnail
-                            src={ART_IMAGE_ENDPOINT(artwork.image_id || "")}
+                            src={isImgError ? MockImage : imgSrc}
                             alt={artwork.title}
+                            onError={setImgError}
                         />
                     )}
                     <StyledInfo>

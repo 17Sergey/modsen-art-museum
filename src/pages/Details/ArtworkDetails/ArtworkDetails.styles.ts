@@ -1,6 +1,7 @@
+import styled from "styled-components";
+
 import { StyledTextHightlight } from "@components/CommonStyledComponents";
 import { device } from "@styles/breakpoints";
-import styled from "styled-components";
 
 export const StyledArtwork = styled.div`
     display: flex;

@@ -23,6 +23,11 @@ export const StyledPagination = styled.div`
 
     @media only screen and (${device.sm}) {
         justify-content: center;
-        margin-top: -2rem;
+        margin-top: 2rem;
     }
+`;
+
+export const StyledLoader = styled.div`
+    width: fit-content;
+    margin: 0 auto;
 `;

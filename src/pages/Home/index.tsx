@@ -1,17 +1,3 @@
-import { StyledContainer } from "@components/Container/Container.styles";
+import { lazy } from "react";
 
-import { OtherArtworks } from "./OtherArtworks";
-import { Gallery } from "./Gallery";
-import { SearchArtworks } from "./SearchArtworks";
-
-export const Home = () => {
-    return (
-        <>
-            <StyledContainer>
-                <SearchArtworks />
-                <Gallery />
-                <OtherArtworks />
-            </StyledContainer>
-        </>
-    );
-};
+export const HomePage = lazy(() => import("./Home"));

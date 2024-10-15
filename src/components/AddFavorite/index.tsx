@@ -5,6 +5,7 @@ import { FormEvent, useState } from "react";
 
 export const AddFavorite = ({ id }: { id: string }) => {
     const theme = useTheme();
+
     const { favoriteIds, addFavorite, removeFavorite } = useFavorites();
 
     const isAlreayAdded = favoriteIds?.some((favoriteId) => favoriteId === id) || false;

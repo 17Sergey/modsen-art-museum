@@ -26,3 +26,8 @@ export const StyledSectionHeading = styled.h2`
 export const StyledTextHightlight = styled.p`
     color: ${(props) => props.theme.colors.secondary};
 `;
+
+export const StyledError = styled.p`
+    color: ${(props) => props.theme.colors.error};
+    text-align: center;
+`;

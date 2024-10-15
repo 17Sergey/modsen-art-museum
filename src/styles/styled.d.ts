@@ -10,6 +10,7 @@ interface ThemeColors {
     textTransparent: string;
     lightGray: string;
     inputBackground: string;
+    error: string;
 }
 
 interface ThemeFonts {

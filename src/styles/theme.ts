@@ -15,6 +15,8 @@ export const defaultTheme: DefaultTheme = {
 
         lightGray: "#F9F9F9",
         inputBackground: "#3939390D",
+
+        error: "#FF5861",
     },
     fonts: {
         primary: "Lexend Deca",

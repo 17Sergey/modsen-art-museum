@@ -1,6 +1,7 @@
+import styled from "styled-components";
+
 import { FavoritesIcon } from "@components/Icons/FavoritesIcon";
 import { device } from "@styles/breakpoints";
-import styled from "styled-components";
 
 export const StyledFavoritesIcon = styled(FavoritesIcon)`
     width: 2.5rem;
@@ -29,4 +30,10 @@ export const StyledFavoritesList = styled.div`
 
 export const StyledMargin = styled.div`
     margin-top: 2.5rem;
+`;
+
+export const StyledLoading = styled.div`
+    & > p {
+        margin: 1rem 0;
+    }
 `;

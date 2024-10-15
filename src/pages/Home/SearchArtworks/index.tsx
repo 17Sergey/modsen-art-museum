@@ -4,18 +4,22 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
     StyledHeading,
     StyledInput,
+    StyledLoader,
+    StyledNoData,
     StyledResults,
     StyledSearchForm,
     StyledSearchIcon,
     StyledSection,
 } from "./SearchArtworks.styles";
 
+import { StyledError } from "@components/CommonStyledComponents";
 import { ArtworksOverviewList } from "@components/ArtworksOverviewList";
+import { Loader } from "@components/Loader";
 
 import { useSearchArtworks } from "@hooks/useSearchArtworks";
 import { useDebounce } from "@hooks/useDebounce";
+
 import { zodSearchSchema } from "@utils/zodSearchSchema";
-import { FormEvent } from "react";
 
 export const SearchArtworks = () => {
     const { register, watch } = useForm({
@@ -26,16 +30,12 @@ export const SearchArtworks = () => {
     const debouncedQuery = useDebounce(searchQuery, 500);
     const { data: artworks, isLoading, error } = useSearchArtworks(debouncedQuery);
 
-    const handleSubmit = (e: FormEvent) => {
-        e.preventDefault();
-    };
-
     return (
         <StyledSection>
             <StyledHeading>
                 Let's Find Some <span>Art</span> Here!
             </StyledHeading>
-            <StyledSearchForm onSubmit={handleSubmit}>
+            <StyledSearchForm>
                 <StyledInput
                     {...register("searchQuery")}
                     type="text"
@@ -44,10 +44,17 @@ export const SearchArtworks = () => {
                 <StyledSearchIcon />
             </StyledSearchForm>
             <StyledResults>
-                {isLoading && <p>Loading...</p>}
-                {error && !isLoading && <p>Error: {error}</p>}
-                {artworks && !isLoading && <ArtworksOverviewList artworks={artworks} />}
-                {artworks && !isLoading && artworks.length === 0 && <p>No data found...</p>}
+                {isLoading && (
+                    <StyledLoader>
+                        <p>We're looking for the data...</p>
+                        <Loader />
+                    </StyledLoader>
+                )}
+                {!isLoading && error && <StyledError>Error: {error}</StyledError>}
+                {!isLoading && !error && artworks && <ArtworksOverviewList artworks={artworks} />}
+                {!isLoading && !error && artworks && artworks.length === 0 && (
+                    <StyledNoData>No data found...</StyledNoData>
+                )}
             </StyledResults>
         </StyledSection>
     );

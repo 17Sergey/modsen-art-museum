@@ -13,13 +13,22 @@ import {
 
 import { AddFavorite } from "@components/AddFavorite";
 import { StyledSectionHeading, StyledTextHightlight } from "@components/CommonStyledComponents";
-import { ART_IMAGE_ENDPOINT } from "@constants/constants";
+
+import { useFetchAPIImage } from "@hooks/useFetchAPIImage";
+
+import MockImage from "@assets/images/MockImage.svg";
 
 export const ArtworkDetails = ({ artwork }: { artwork: FullArtWorkType }) => {
+    const { imgSrc, isImgError, setImgError } = useFetchAPIImage(artwork.image_id || "");
+
     return (
         <StyledArtwork>
             <StyledImageWrapper>
-                <StyledImage src={ART_IMAGE_ENDPOINT(artwork.image_id as string)} />
+                <StyledImage
+                    src={isImgError ? MockImage : imgSrc}
+                    alt={artwork.title}
+                    onError={setImgError}
+                />
                 <StyledBookMark>
                     <AddFavorite id={artwork.id} />
                 </StyledBookMark>
