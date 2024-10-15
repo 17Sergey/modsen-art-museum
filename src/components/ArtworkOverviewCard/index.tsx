@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
     StyledArtistName,
     StyledCard,
-    StyledContent,
+    StyledCardContent,
     StyledInfo,
     StyledPublicStatus,
     StyledThumbnail,
@@ -23,7 +23,7 @@ export const ArtworkOverviewCard = ({
     return (
         <Link to={`/artworks/${artwork.id}`}>
             <StyledCard>
-                <StyledContent>
+                <StyledCardContent>
                     {withImage && (
                         <StyledThumbnail
                             src={ART_IMAGE_ENDPOINT(artwork.image_id || "")}
@@ -41,7 +41,7 @@ export const ArtworkOverviewCard = ({
                             {artwork.is_public_domain ? "Public" : "Private"}
                         </StyledPublicStatus>
                     </StyledInfo>
-                </StyledContent>
+                </StyledCardContent>
                 <AddFavorite id={artwork.id} />
             </StyledCard>
         </Link>

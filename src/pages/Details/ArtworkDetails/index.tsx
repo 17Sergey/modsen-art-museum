@@ -8,6 +8,7 @@ import {
     StyledImage,
     StyledImageWrapper,
     StyledInfo,
+    StyledOverview,
 } from "./ArtworkDetails.styles";
 
 import { AddFavorite } from "@components/AddFavorite";
@@ -32,7 +33,7 @@ export const ArtworkDetails = ({ artwork }: { artwork: FullArtWorkType }) => {
                     </StyledDates>
                 </div>
 
-                <div>
+                <StyledOverview>
                     <StyledSectionHeading>Overview</StyledSectionHeading>
                     <StyledFeatures>
                         <StyledFeature>
@@ -53,7 +54,7 @@ export const ArtworkDetails = ({ artwork }: { artwork: FullArtWorkType }) => {
                         </StyledFeature>
                     </StyledFeatures>
                     <p>{artwork.is_public_domain ? "Public" : "Private"}</p>
-                </div>
+                </StyledOverview>
             </StyledInfo>
         </StyledArtwork>
     );

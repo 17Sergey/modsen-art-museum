@@ -7,10 +7,12 @@ import {
     StyledBurgerIcon,
     StyledBurgerMenu,
     StyledCrossIcon,
+    StyledOverlay,
 } from "./HeaderMenu.styles";
 
 import { FavoritesIcon } from "@components/Icons/FavoritesIcon";
 import { HomeIcon } from "@components/Icons/HomeIcon";
+import { useDisableBodyScroll } from "@hooks/useDisableBodyScroll";
 
 export const HeaderMenu = () => {
     const { pathname } = useLocation();
@@ -21,20 +23,22 @@ export const HeaderMenu = () => {
         setIsMenuOpen((isMenuOpen) => !isMenuOpen);
     };
 
+    useDisableBodyScroll(isMenuOpen);
+
     const iconsSize = { width: "1.5rem", height: "1.5rem" };
 
     const getMenuItemsJSX = () => {
         return (
             <>
                 {pathname !== "/" && (
-                    <li>
+                    <li onClick={isMenuOpen ? toggleMenu : undefined}>
                         <StyledLink to="/">
                             <HomeIcon {...iconsSize} />
                             Home
                         </StyledLink>
                     </li>
                 )}
-                <li>
+                <li onClick={isMenuOpen ? toggleMenu : undefined}>
                     <StyledLink to="/favorites">
                         <FavoritesIcon {...iconsSize} />
                         Your favorites
@@ -49,6 +53,7 @@ export const HeaderMenu = () => {
             <StyledBurgerIcon onClick={toggleMenu} />
             <ul>
                 <StyledDesktopMenu>{getMenuItemsJSX()}</StyledDesktopMenu>
+                {isMenuOpen && <StyledOverlay onClick={toggleMenu}></StyledOverlay>}
                 <StyledBurgerMenu $isMenuOpen={isMenuOpen}>
                     <StyledCrossIcon onClick={toggleMenu} />
                     {getMenuItemsJSX()}

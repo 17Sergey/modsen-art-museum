@@ -5,7 +5,7 @@ import {
     StyledHeading,
     StyledInput,
     StyledResults,
-    StyledSearch,
+    StyledSearchForm,
     StyledSearchIcon,
     StyledSection,
 } from "./SearchArtworks.styles";
@@ -15,6 +15,7 @@ import { ArtworksOverviewList } from "@components/ArtworksOverviewList";
 import { useSearchArtworks } from "@hooks/useSearchArtworks";
 import { useDebounce } from "@hooks/useDebounce";
 import { zodSearchSchema } from "@utils/zodSearchSchema";
+import { FormEvent } from "react";
 
 export const SearchArtworks = () => {
     const { register, watch } = useForm({
@@ -25,19 +26,23 @@ export const SearchArtworks = () => {
     const debouncedQuery = useDebounce(searchQuery, 500);
     const { data: artworks, isLoading, error } = useSearchArtworks(debouncedQuery);
 
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault();
+    };
+
     return (
         <StyledSection>
             <StyledHeading>
                 Let's Find Some <span>Art</span> Here!
             </StyledHeading>
-            <StyledSearch>
+            <StyledSearchForm onSubmit={handleSubmit}>
                 <StyledInput
                     {...register("searchQuery")}
                     type="text"
                     placeholder="Search art, artist, work..."
                 />
                 <StyledSearchIcon />
-            </StyledSearch>
+            </StyledSearchForm>
             <StyledResults>
                 {isLoading && <p>Loading...</p>}
                 {error && !isLoading && <p>Error: {error}</p>}

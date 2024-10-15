@@ -1,20 +1,32 @@
 import { StyledLargeHeading } from "@components/CommonStyledComponents";
 import { SearchIcon } from "@components/Icons/SearchIcon";
+import { device } from "@styles/breakpoints";
 import styled from "styled-components";
 
 export const StyledSection = styled.section`
     margin-bottom: 7rem;
+    @media only screen and (${device.sm}) {
+        margin-bottom: 3rem;
+    }
 `;
 
 export const StyledHeading = styled(StyledLargeHeading)`
     max-width: 40rem;
     margin: 0 auto 4rem;
+
+    @media only screen and (${device.sm}) {
+        margin-bottom: 3rem;
+    }
 `;
 
-export const StyledSearch = styled.form`
+export const StyledSearchForm = styled.form`
     max-width: 60%;
     margin: 0 auto;
     position: relative;
+
+    @media only screen and (${device.sm}) {
+        max-width: 100%;
+    }
 `;
 
 export const StyledSearchIcon = styled(SearchIcon)`
@@ -24,6 +36,11 @@ export const StyledSearchIcon = styled(SearchIcon)`
     top: 50%;
     right: 1rem;
     transform: translateY(-50%);
+
+    @media only screen and (${device.sm}) {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 `;
 
 export const StyledInput = styled.input`
@@ -32,6 +49,7 @@ export const StyledInput = styled.input`
     outline: none;
     border: none;
     padding: 1.5rem 1rem;
+    padding-right: 3rem;
     border-radius: 0.75rem;
 
     font-family: ${(props) => props.theme.fonts.secondary};

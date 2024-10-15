@@ -3,6 +3,7 @@ import {
     StyledFavoritesIcon,
     StyledFavoritesList,
     StyledFavoritesWrapper,
+    StyledMargin,
 } from "./Favorites.styles";
 
 import { StyledContainer } from "@components/Container/Container.styles";
@@ -34,13 +35,15 @@ export function Favorites() {
                 <StyledTextHightlight>Saved by you</StyledTextHightlight>
                 <StyledSectionHeading>Your favorites list</StyledSectionHeading>
 
-                {isLoading && <p>Loading...</p>}
-                {error && <p>Error: {error}</p>}
-                {artworks && (
-                    <StyledFavoritesList>
-                        <ArtworksOverviewList artworks={artworks} />
-                    </StyledFavoritesList>
-                )}
+                <StyledMargin>
+                    {isLoading && <p>Loading...</p>}
+                    {error && <p>Error: {error}</p>}
+                    {artworks && (
+                        <StyledFavoritesList>
+                            <ArtworksOverviewList artworks={artworks} />
+                        </StyledFavoritesList>
+                    )}
+                </StyledMargin>
             </StyledFavoritesWrapper>
         </StyledContainer>
     );

@@ -1,20 +1,26 @@
-import { StyledTextHightlight } from "@components/CommonStyledComponents";
 import styled from "styled-components";
 
+import { StyledTextHightlight } from "@components/CommonStyledComponents";
+
 export const StyledCard = styled.div`
-    padding: 1.5rem 0.75rem;
+    padding: 0.75rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     background-color: ${(props) => props.theme.colors.white};
+    border: 1px solid ${(props) => props.theme.colors.inputBackground};
     cursor: pointer;
 `;
 
-export const StyledContent = styled.div`
+export const StyledCardContent = styled.div`
     display: flex;
-    align-items: stretch;
+    align-items: center;
     gap: 1rem;
-    margin-right: 1.5rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 export const StyledThumbnail = styled.img`
@@ -31,16 +37,15 @@ export const StyledInfo = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
-    max-width: 100%;
+    white-space: nowrap;
     overflow: hidden;
-    min-width: 100%;
+    text-overflow: ellipsis;
 `;
 
 export const StyledTitle = styled.p`
     font-weight: 500;
     font-size: ${(props) => props.theme.fonts.fontSize.medium};
 
-    max-width: 12rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -50,7 +55,6 @@ export const StyledArtistName = styled(StyledTextHightlight)`
     margin-top: 0.5rem;
     color: ${(props) => props.theme.colors.secondary};
 
-    max-width: 12rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

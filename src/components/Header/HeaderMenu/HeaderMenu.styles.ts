@@ -36,7 +36,7 @@ export const StyledBurgerMenu = styled.div<{
 }>`
     display: none;
     position: fixed;
-    z-index: 100;
+    z-index: 200;
     top: 0;
     right: -100%;
 
@@ -73,4 +73,19 @@ export const StyledCrossIcon = styled(CrossIcon)`
     align-self: flex-end;
     position: relative;
     left: 1rem;
+`;
+
+export const StyledOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background-color: #000;
+    opacity: 0.5;
 `;

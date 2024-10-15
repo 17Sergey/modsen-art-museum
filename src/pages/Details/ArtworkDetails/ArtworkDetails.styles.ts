@@ -1,14 +1,24 @@
 import { StyledTextHightlight } from "@components/CommonStyledComponents";
+import { device } from "@styles/breakpoints";
 import styled from "styled-components";
 
 export const StyledArtwork = styled.div`
     display: flex;
     gap: 5rem;
     align-items: stretch;
+    justify-content: center;
+
+    @media only screen and (${device.md}) {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
 `;
 
 export const StyledImageWrapper = styled.div`
     position: relative;
+    width: 100%;
+    max-width: 30rem;
 `;
 
 export const StyledBookMark = styled.div`
@@ -22,8 +32,6 @@ export const StyledBookMark = styled.div`
 `;
 
 export const StyledImage = styled.img`
-    max-width: 30rem;
-    height: auto;
     aspect-ratio: 1 / 1.3;
     object-fit: cover;
 `;
@@ -32,6 +40,7 @@ export const StyledInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 `;
 
 export const StyledTitle = styled.div`
@@ -50,8 +59,8 @@ export const StyledDates = styled.div`
     font-weight: 700;
 `;
 
-export const StyledOverviewHeading = styled.div`
-    font-size: 2rem;
+export const StyledOverview = styled.div`
+    margin-top: 3rem;
 `;
 
 export const StyledFeatures = styled.ul`

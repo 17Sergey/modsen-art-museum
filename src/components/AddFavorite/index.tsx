@@ -1,5 +1,5 @@
 import { useTheme } from "styled-components";
-import { StyledButton, StyledIcon } from "./AddFavorite.styles";
+import { StyledButton, StyledForm, StyledIcon } from "./AddFavorite.styles";
 import { useFavorites } from "@hooks/useFavorites";
 import { FormEvent, useState } from "react";
 
@@ -22,13 +22,13 @@ export const AddFavorite = ({ id }: { id: string }) => {
     };
 
     return (
-        <form onSubmit={(e: FormEvent) => e.preventDefault()}>
+        <StyledForm onSubmit={(e: FormEvent) => e.preventDefault()}>
             <StyledButton onClick={addToFavorites}>
                 <StyledIcon
                     stroke={theme.colors.primary}
                     fill={isAdded ? theme.colors.primary : "transparent"}
                 />
             </StyledButton>
-        </form>
+        </StyledForm>
     );
 };

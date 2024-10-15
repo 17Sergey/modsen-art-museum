@@ -10,4 +10,5 @@ export const StyledArtworkImage = styled.img`
     height: auto;
     object-fit: cover;
     aspect-ratio: 1 / 1.2;
+    margin: 0 auto;
 `;

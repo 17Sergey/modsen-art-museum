@@ -1,6 +1,10 @@
 import { FavoritesIcon } from "@components/Icons/FavoritesIcon";
 import styled from "styled-components";
 
+export const StyledForm = styled.form`
+    width: fit-content;
+`;
+
 export const StyledButton = styled.button`
     background-color: ${(props) => props.theme.colors.lightGray};
     display: grid;
